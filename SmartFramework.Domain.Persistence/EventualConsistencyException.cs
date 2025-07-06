@@ -1,6 +1,6 @@
 using ErrorOr;
 
-namespace SmartFramework.Domain;
+namespace SmartFramework.Domain.Persistence;
 
 public class EventualConsistencyException : Exception
 {

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using SmartFramework.CQRS;
 
-namespace SmartFramework.Domain;
+namespace SmartFramework.Domain.Persistence;
 
 public class EventualConsistencyMiddleware<TContext> where TContext : DbContext
 {

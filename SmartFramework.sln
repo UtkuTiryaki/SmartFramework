@@ -1,8 +1,56 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{19CD1AF9-A607-4053-8092-E710534054F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFramework.Core", "SmartFramework.Core\SmartFramework.Core.csproj", "{F78168C3-5239-4BF3-A8EC-CD7857CF5D99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFramework.Domain", "SmartFramework.Domain\SmartFramework.Domain.csproj", "{283A219B-0912-4058-9E3B-F56ED7DD9FDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFramework.CQRS", "SmartFramework.CQRS\SmartFramework.CQRS.csproj", "{6D1302D0-86C5-40C2-9E33-848F9C576AF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFramework.Domain.Persistence", "SmartFramework.Domain.Persistence\SmartFramework.Domain.Persistence.csproj", "{8EBA6170-DDC7-449E-A3D1-09A59EE53B8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFramework.EventSourcing", "SmartFramework.EventSourcing\SmartFramework.EventSourcing.csproj", "{7C13F687-D4ED-461C-B03B-0F45E6E60EF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartFramework.EventSourcing.DynamoDb", "SmartFramework.EventSourcing.DynamoDb\SmartFramework.EventSourcing.DynamoDb.csproj", "{E7D9D516-0992-47F6-8550-A7C03FACDC30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F78168C3-5239-4BF3-A8EC-CD7857CF5D99} = {19CD1AF9-A607-4053-8092-E710534054F1}
+		{283A219B-0912-4058-9E3B-F56ED7DD9FDE} = {19CD1AF9-A607-4053-8092-E710534054F1}
+		{6D1302D0-86C5-40C2-9E33-848F9C576AF6} = {19CD1AF9-A607-4053-8092-E710534054F1}
+		{8EBA6170-DDC7-449E-A3D1-09A59EE53B8F} = {19CD1AF9-A607-4053-8092-E710534054F1}
+		{7C13F687-D4ED-461C-B03B-0F45E6E60EF3} = {19CD1AF9-A607-4053-8092-E710534054F1}
+		{E7D9D516-0992-47F6-8550-A7C03FACDC30} = {19CD1AF9-A607-4053-8092-E710534054F1}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F78168C3-5239-4BF3-A8EC-CD7857CF5D99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F78168C3-5239-4BF3-A8EC-CD7857CF5D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F78168C3-5239-4BF3-A8EC-CD7857CF5D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F78168C3-5239-4BF3-A8EC-CD7857CF5D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{283A219B-0912-4058-9E3B-F56ED7DD9FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{283A219B-0912-4058-9E3B-F56ED7DD9FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{283A219B-0912-4058-9E3B-F56ED7DD9FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{283A219B-0912-4058-9E3B-F56ED7DD9FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D1302D0-86C5-40C2-9E33-848F9C576AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D1302D0-86C5-40C2-9E33-848F9C576AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D1302D0-86C5-40C2-9E33-848F9C576AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D1302D0-86C5-40C2-9E33-848F9C576AF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBA6170-DDC7-449E-A3D1-09A59EE53B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBA6170-DDC7-449E-A3D1-09A59EE53B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBA6170-DDC7-449E-A3D1-09A59EE53B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBA6170-DDC7-449E-A3D1-09A59EE53B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C13F687-D4ED-461C-B03B-0F45E6E60EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C13F687-D4ED-461C-B03B-0F45E6E60EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C13F687-D4ED-461C-B03B-0F45E6E60EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C13F687-D4ED-461C-B03B-0F45E6E60EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7D9D516-0992-47F6-8550-A7C03FACDC30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7D9D516-0992-47F6-8550-A7C03FACDC30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7D9D516-0992-47F6-8550-A7C03FACDC30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7D9D516-0992-47F6-8550-A7C03FACDC30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
