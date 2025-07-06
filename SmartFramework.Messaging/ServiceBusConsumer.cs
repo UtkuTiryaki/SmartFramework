@@ -8,11 +8,6 @@ using SmartFramework.CQRS;
 
 namespace SmartFramework.Messaging;
 
-public class SqsEventConsumerOptions<T> where T : IIntegrationEvent
-{
-    public string QueueUrl { get; set; } = string.Empty;
-}
-
 public class ServiceBusConsumer<T>(
     IAmazonSQS sqsClient,
     IServiceProvider serviceProvider,
@@ -36,7 +31,6 @@ public class ServiceBusConsumer<T>(
             try
             {
                 await ProcessEventAsync(cancellationToken);
-                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
             }
             catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
             {
@@ -76,5 +70,7 @@ public class ServiceBusConsumer<T>(
             await handler.HandleAsync(integrationEvent, cancellationToken);
             await sqsClient.DeleteMessageAsync(options.QueueUrl, message.ReceiptHandle, cancellationToken);
         }
+        
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
 }

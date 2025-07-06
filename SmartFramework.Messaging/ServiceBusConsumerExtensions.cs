@@ -6,9 +6,10 @@ namespace SmartFramework.Messaging;
 public static class ServiceBusConsumerExtensions
 {
     public static IServiceCollection AddEventConsumer<T>(this IServiceCollection services,
-        Action<SqsEventConsumerOptions<T>> configure) where T : class, IIntegrationEvent
+        Action<SqsEventConsumerOptions<T>> configure, params Assembly[] assemblies) where T : class, IIntegrationEvent
     {
         services.Configure(configure);
+        services.AddIntegrationEventHandlersForType<T>(assemblies);
         services.AddHostedService<ServiceBusConsumer<T>>();
         return services;
     }
@@ -16,7 +17,8 @@ public static class ServiceBusConsumerExtensions
     public static IServiceCollection AddEventConsumer<T>(
         this IServiceCollection services,
         string queueUrl,
-        Action<SqsEventConsumerOptions<T>>? configure = null)
+        Action<SqsEventConsumerOptions<T>>? configure = null,
+        params Assembly[] assemblies)
         where T : class, IIntegrationEvent
     {
         services.Configure<SqsEventConsumerOptions<T>>(options =>
@@ -25,13 +27,13 @@ public static class ServiceBusConsumerExtensions
             configure?.Invoke(options);
         });
 
-        services.AddIntegrationEventHandlersForType<T>();
+        services.AddIntegrationEventHandlersForType<T>(assemblies);
         services.AddHostedService<ServiceBusConsumer<T>>();
         
         return services;
     }
 
-    private static IServiceCollection AddIntegrationEventHandlersForType<TEvent>(this IServiceCollection services,
+    private static void AddIntegrationEventHandlersForType<TEvent>(this IServiceCollection services,
         params Assembly[] assemblies) where TEvent : IIntegrationEvent
     {
         if (assemblies == null || assemblies.Length == 0) throw new ArgumentNullException(nameof(assemblies));
@@ -49,7 +51,5 @@ public static class ServiceBusConsumerExtensions
         {
             services.AddSingleton(handlerInterfaceType, handlerType);
         }
-
-        return services;
     }
 }
